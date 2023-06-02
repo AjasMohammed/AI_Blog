@@ -1,0 +1,90 @@
+{% extends 'basic.html' %}
+
+{% block title %}HomePage{% endblock title %}HomePage
+
+{% block style %}
+/* Main content styles */
+    .content {
+      max-width: 800px;
+      margin: 80px auto; /* Add margin-top to accommodate the fixed navbar */
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .blog-post {
+      margin-bottom: 40px;
+      background-color: #f9f9f9; /* Add a light background color to the blog posts */
+      padding: 20px;
+    }
+
+    .blog-post h2 {
+      margin-top: 0;
+      color: #333;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .blog-post p {
+      color: #666;
+      line-height: 1.5;
+    }
+
+    .recent-posts {
+      margin-top: 40px;
+    }
+
+    .recent-posts h3 {
+      margin-top: 0;
+      color: #333;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .recent-posts ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .recent-posts li {
+      margin-bottom: 10px;
+    }
+
+    .recent-posts li a {
+      color: #666;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .recent-posts li a:hover {
+      color: #333;
+    }
+{% endblock style %}
+
+{% block body %}
+<!-- Main content -->
+<div class="content">
+    <div class="blog-post">
+      <h2>Blog Post Title</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ultricies risus in maximus lobortis.</p>
+    </div>
+    <div class="blog-post">
+      <h2>Another Blog Post Title</h2>
+      <p>Maecenas quis nisl eu nulla aliquam commodo. Morbi sit amet iaculis nunc.</p>
+    </div>
+
+    <!-- Recent Posts -->
+    <div class="recent-posts">
+      <h3>Recent Posts</h3>
+      <ul>
+        <li><a href="#">Recent Post 1</a></li>
+        <li><a href="#">Recent Post 2</a></li>
+        <li><a href="#">Recent Post 3</a></li>
+      </ul>
+    </div>
+  </div>
+{% endblock body %}
+
+
+
