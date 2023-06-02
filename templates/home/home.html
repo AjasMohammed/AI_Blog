@@ -65,24 +65,30 @@
 {% block body %}
 <!-- Main content -->
 <div class="content">
+  {% for post in posts|slice:':2' %}
     <div class="blog-post">
-      <h2>Blog Post Title</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ultricies risus in maximus lobortis.</p>
+      <h2><a href="blog/{{post.serial_no}}">{{post.title}}</a></h2>
+      <p>{{post.content | truncatechars:300}}</p>
     </div>
-    <div class="blog-post">
+    {% endfor %}
+    <!-- <div class="blog-post">
       <h2>Another Blog Post Title</h2>
       <p>Maecenas quis nisl eu nulla aliquam commodo. Morbi sit amet iaculis nunc.</p>
-    </div>
+    </div> -->
 
     <!-- Recent Posts -->
+    {% if posts|length > 2 %}
     <div class="recent-posts">
       <h3>Recent Posts</h3>
       <ul>
+        {% for post in posts|slice:"2:5" %}
         <li><a href="#">Recent Post 1</a></li>
-        <li><a href="#">Recent Post 2</a></li>
-        <li><a href="#">Recent Post 3</a></li>
+        {% comment %} <li><a href="#">Recent Post 2</a></li>
+        <li><a href="#">Recent Post 3</a></li> {% endcomment %}
+        {% endfor %}
       </ul>
     </div>
+    {% endif %}
   </div>
 {% endblock body %}
 
