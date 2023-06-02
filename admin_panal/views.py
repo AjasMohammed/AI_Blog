@@ -1,10 +1,24 @@
 from django.shortcuts import render
+from .models import BlogUrl, Post
 from bardapi import Bard
-from django.views import View
-from admin_panal.models import BlogPost
-from .tasks import blogpost
 import re
+import random
 
+
+def post_url(request):
+    
+    if request.method == 'POST':
+        url = request.POST.get('url')
+        name = request.POST.get('name')
+        
+        items = BlogUrl(name=name, url=url)
+        items.save()
+    
+    obj = BlogUrl.objects.all()
+    data = {'obj': obj}
+    post()
+    
+    return render(request, 'admin/admin_panal.html', data)
 
 def task(url):
     
@@ -45,6 +59,7 @@ Remember to analyze the given URL, select a unique and newest topic, and then ge
 - Brainstorm several possible titles using the keywords and following the best practices for writing catchy headlines.
 - Choose the best title that reflects the blogpost's purpose, tone, audience and value proposition.
 - Return only the title as the response and nothing else.
+- The title should be in between two '**' eg: **<title>**
 - It is important to provide only the title name an not any description based on it.
 - It shouhl be 10 to 20 words."""
 
@@ -56,26 +71,13 @@ Remember to analyze the given URL, select a unique and newest topic, and then ge
     return main_content, content_title
 
 
-def post(url):
+def post():
     
-    content, title=task(url)
-    post = BlogPost(title=title, content=content)
+    data = BlogUrl.objects.all()
+    no = random.randint(0, len(data)-1)
+    link = data[no].url
+    
+    content, title=task(link)
+    post = Post(title=title, content=content)
     post.save()
-    # print(title, '\n\n', content)
-    
-    
-# Create your views here.
 
-def gpt(request):
-    if request.method == 'POST':
-        url = request.POST.get('url')
-        # show()
-        
-        # blogpost.delay(url)
-        
-    return render(request, 'admin/admin_panal.html')
-
-def show():
-    x = BlogPost.objects.all().order_by('title')
-    
-    print(x)

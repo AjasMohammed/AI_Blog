@@ -1,49 +1,20 @@
 {% extends 'basic.html' %}
-{% block title %}BlogPost{% endblock title %}
-  
-{% block style %}
-    /* CSS styles */
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(135deg, #F36265, #961276);
-    }
 
-    /* Main content styles */
-    .content {
-      max-width: 800px;
-      margin: 80px auto; /* Add margin-top to center the content */
-      background-color: #fff;
-      padding: 20px;
-      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    }
+{% block title %}Blog{% endblock title %}
 
-    .blog-post {
-      background-color: #f9f9f9; /* Add a light background color to the blog post */
-      padding: 20px;
-    }
-
-    .blog-post h2 {
-      margin-top: 0;
-      color: #333;
-      font-size: 24px;
-      font-weight: bold;
-    }
-
-    .blog-post p {
-      color: #666;
-      line-height: 1.5;
-    }
-    {% endblock style %}
-</head>
 {% block body %}
-  <!-- Main content -->
-  <div class="content">
-    <div class="blog-post">
-      <h2>Blog Post Title</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ultricies risus in maximus lobortis.</p>
-    </div>
-  </div>
-  {% endblock body%}
 
+{% for post in posts %}
+{% comment %} <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"> {% endcomment %}
+  <div class="col p-4 d-flex flex-column position-static"  style='background-color:white;'>
+    <strong class="d-inline-block mb-2 text-primary">World</strong>
+    <h3 class="mb-0"> <a class="text-dark" href="{{post.serial_no}}">{{post.title}}</a> </h3>
+    <div class="mb-2 text-muted">{{post.time_stamp}}</div>
+    <p class="card-text mb-auto"><div class="preview">{{post.content| truncatechars:400}}</p></div>
+    <div class='my-2'>
+    <a href="{{post.serial_no}}" role='button' class="btn btn-primary">Continue reading</a>
+  </div>
+  {% comment %} </div> {% endcomment %}
+  {% endfor %}
+
+{% endblock body %}
