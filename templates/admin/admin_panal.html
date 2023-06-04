@@ -22,9 +22,9 @@ button {
 {% endblock style %}
 
 {% block body %}
-<div class="container">
+<div class="container" style="margin-top: 6rem;">
   <h2>CRUD Operations</h2>
-  <form method="post">
+  <!-- <form method="post">
       {% csrf_token %}
       <label for="name">Name:</label>
       <input type="text" id="name" name="name" required><br><br>
@@ -33,29 +33,48 @@ button {
       <input type="text" id="url" name="url" required><br><br>
 
       <button type="submit">Create</button>
+  </form> -->
+  <form method="post" class="row g-3 needs-validation" novalidate>
+    {% csrf_token %}
+    <div class="col-md-4">
+      <label for="validationCustom01" class="form-label">Name</label>
+      <input type="text" class="form-control" id="name" name="name" value="" required>
+    </div>
+    <div class="col-md-4">
+      <label for="validationCustom02" class="form-label">URL</label>
+      <input type="text" class="form-control" id="url" name="url" value="" required>
+    </div>
+    <div class="col-12">
+      <button class="btn btn-primary" type="submit" style="width:130px;">Add</button>
+    </div>
   </form>
-
+<div class="container" style="margin:3rem">
   <h3>Table:</h3>
-  <table>
+  <table class="table">
+    <thead>
       <tr>
-        <th>Seriel No.</th>
-          <th>Name</th>
-          <th>URL</th>
-          <th></th>
+        <th scope="col">Serial No.</th>
+        <th scope="col">Name</th>
+        <th scope="col">URL</th>
+        <th scope="col"></th>
       </tr>
+    </thead>
+    <tbody>
       {% for item in obj %}
       <tr>
-        <td>{{item.serial_no}}</td>
-          <td>{{ item.name }}</td>
-          <td>{{ item.url }}</td>
-          {% comment %} <td>
-            <form method="post" action="{% url 'delete_item' item.id %}">
-                {% csrf_token %}
-                <button type="submit">Delete</button>
-            </form>
-        </td> {% endcomment %}
+        <th scope="row">{{forloop.counter}}</th>
+        <td>{{item.name}}</td>
+        <td>{{item.url}}</td>
+        <td>
+          <form method="post" action={% url 'delete_item' item.serial_no %}>
+            {% csrf_token %}
+            <button class="btn btn-primary" type="submit" style="width:100px;">Delete</button>
+        </form>
+        </td>
       </tr>
       {% endfor %}
+    </tbody>
   </table>
+</div>
 </div>
 {% endblock body %}

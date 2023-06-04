@@ -83,7 +83,7 @@
 {% block body %}
 <!-- Main content -->
 <div class="content">
-  {% for post in posts|slice:':2' %}
+  {% for post in posts|slice:':3' %}
     <div class="blog-post">
       <h2>
         <a href="blog/{{post.serial_no}}"
@@ -101,11 +101,11 @@
 
   <!-- Recent Posts -->
   <div class="container d-flex justify-content-start">
-    {% if posts|length > 2 %}
+    {% if posts|length > 3 %}
     <div class="recent-posts">
       <h3>Recent Posts</h3>
       <ul class="list-group list-group-flush">
-        {% for post in posts|slice:"2:5" %}
+        {% for post in posts|slice:"3:5" %}
         <li class="list-group-item"><a href="blog/{{post.serial_no}}">{{post.title}}</a></li>
         {% endfor %}
       </ul>
