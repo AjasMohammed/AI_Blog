@@ -6,20 +6,14 @@
 
     {% block body %}
   <!-- Main content -->
-<div class="container" style="margin-top: 5rem; max-width:50rem">
-  <div class="card text-center">
-    <div class="card-header">
-      <h1 class="card-title">{{post.title}}</h1>
-    </div>
-    <div class="card-body">
-      
-      <p class="card-text lh-1">{{post.content}}</p>
+  <div class="container" style="max-width: 65rem; margin-top:6rem;">
+    <h2 class="blog-post-title mb-2 mt-3">{{post.title}}</h2>
+    <p class="blog-post-meta text-body-secondary">
+      {{post.time_stamp}}
+    </p>
   
-    </div>
-    <div class="card-footer text-body-secondary">
-      2 days ago
-    </div>
-  </div>
+    <p>{{post.content|safe}}</p>
+    <hr/>
   </div>
   {% endblock body%}
 
