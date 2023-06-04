@@ -2,48 +2,24 @@
 {% block title %}BlogPost{% endblock title %}
   
 {% block style %}
-    /* CSS styles */
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(135deg, #F36265, #961276);
-    }
-
-    /* Main content styles */
-    .content {
-      max-width: 800px;
-      margin: 80px auto; /* Add margin-top to center the content */
-      background-color: #fff;
-      padding: 20px;
-      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    .blog-post {
-      background-color: #f9f9f9; /* Add a light background color to the blog post */
-      padding: 20px;
-    }
-
-    .blog-post h2 {
-      margin-top: 0;
-      color: #333;
-      font-size: 24px;
-      font-weight: bold;
-    }
-
-    .blog-post p {
-      color: #666;
-      line-height: 1.5;
-    }
     {% endblock style %}
-</head>
-{% block body %}
+
+    {% block body %}
   <!-- Main content -->
-  <div class="content">
-    <div class="blog-post">
-      <h2>{{post.title}}</h2>
-      <p>{{post.content}}</p>
+<div class="container" style="margin-top: 5rem; max-width:50rem">
+  <div class="card text-center">
+    <div class="card-header">
+      <h1 class="card-title">{{post.title}}</h1>
     </div>
+    <div class="card-body">
+      
+      <p class="card-text lh-1">{{post.content}}</p>
+  
+    </div>
+    <div class="card-footer text-body-secondary">
+      2 days ago
+    </div>
+  </div>
   </div>
   {% endblock body%}
 
