@@ -18,7 +18,7 @@ app.config_from_object('django.conf:settings', namespace='CELERY')
 app.conf.beat_schedule = {
     'blog-post-everyday': {
         'task': 'admin_panal.tasks.post',
-        'schedule': crontab(hour=12, minute=0),
+        'schedule': crontab(hour=0, minute=0),
     }
 }
 

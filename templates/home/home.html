@@ -105,7 +105,7 @@
     <div class="recent-posts">
       <h3>Recent Posts</h3>
       <ul class="list-group list-group-flush">
-        {% for post in posts|slice:"3:5" %}
+        {% for post in posts|slice:"3:7" %}
         <li class="list-group-item"><a href="blog/{{post.serial_no}}">{{post.title}}</a></li>
         {% endfor %}
       </ul>
