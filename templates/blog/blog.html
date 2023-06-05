@@ -16,7 +16,7 @@
   <div class="card shadow-sm p-3 mb-5 bg-body-tertiary rounded" style="margin-bottom: 2rem;">
     <div class="card-body">
       <h5 class="card-title display-6 fw-normal cardhead">{{post.title}}</h5>
-      <p class="card-text">{{post.content | truncatechars:500}}</p>
+      <p class="card-text">{{post.content | truncatechars:500|safe}}</p>
       <a href="{{post.serial_no}}" class="btn btn-primary">continue reading</a>
     </div>
   </div>
