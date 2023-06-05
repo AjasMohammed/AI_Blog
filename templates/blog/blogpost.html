@@ -2,18 +2,26 @@
 {% block title %}BlogPost{% endblock title %}
   
 {% block style %}
-    {% endblock style %}
+  h4{
+margin-bottom: 1rem;
+font-weight: 400;
+  }
+
+  .blog-post-title{
+    font-weight: 400;
+  }
+{% endblock style %}
 
     {% block body %}
   <!-- Main content -->
   <div class="container" style="max-width: 65rem; margin-top:6rem;">
-    <h2 class="blog-post-title mb-2 mt-3">{{post.title}}</h2>
-    <p class="blog-post-meta text-body-secondary mb-4">
+    <h1 class="blog-post-title mb-2 mt-3">{{post.title}}</h1>
+    <p class="blog-post-meta text-body-secondary" style="margin-bottom:3rem;">
       {{post.time_stamp}}
     </p>
   
     <p>{{post.content|safe}}</p>
-    <hr/>
+    <hr style="margin-top: 2rem;" />
   </div>
   {% endblock body%}
 
