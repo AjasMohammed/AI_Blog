@@ -73,7 +73,31 @@ Ensure that the title is descriptive and intriguing, while the content summary p
     soup = bs(content_title, 'html.parser')
     content_title = str(soup.h1.text)
     
-    return main_content, content_title
+    
+    instruction_4 = f"""Given a piece of content, please analyze it and select the main keywords. Return the keywords in CSV format.
+    
+Content: {response}
+
+Instructions:
+Read the provided content thoroughly.
+Identify the most important keywords that represent the main topics or concepts in the content.
+Exclude common or irrelevant words that don't contribute to the main ideas.
+Focus on nouns, verbs, adjectives, and specific terms related to the content's subject matter.
+Avoid including pronouns, articles, prepositions, or general words that lack meaningful context.
+If a word has multiple forms (e.g., plural, singular, verb tense), choose the most relevant form.
+Separate each keyword with a comma.
+Provide the list of selected keywords in CSV format as the output.
+Every keyword should be one word.
+Store the keywords in square brackets.
+Example output: [ keyword1, keyword2, keyword3 ]
+
+Remember, the goal is to capture the essential concepts and topics in the content while excluding common or irrelevant words.
+"""
+    tags = bard.get_answer(instruction_4)
+    tags = tags['content']
+    keywords = re.findall(r'\[(.*?)\]', tags)[0]
+    
+    return {"main_content": main_content, "content_title": content_title, "tags": keywords}
 
 
 @shared_task()
@@ -83,8 +107,12 @@ def post():
     no = random.randint(0, len(data)-1)
     link = data[no].url
     
-    content, title=do_job(link)
-    post = Post(title=title, content=content)
+    data = do_job(link)
+    content = data['main_content']
+    title = data["content_title"]
+    tags = data["tags"].lowercase()
+
+    post = Post(title=title, content=content, tags=tags)
     post.save()
     
     return "Saved Sucessesfully"

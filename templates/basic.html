@@ -13,11 +13,12 @@
     </style>
   </head>
   <body>
+    <div class="container">
     <!-- NavBar -->
     <nav class="navbar navbar-expand-lg bg-dark fixed-top" data-bs-theme="dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="/"
-          style="font-size:2rem;">NeuroFeed</a>
+          <!-- <a class="navbar-brand" href="/"
+          style="font-size:2rem;">NeuroFeed</a> -->
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -41,21 +42,23 @@
                 </ul>
               </li>
             </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2 bg-light" type="search" placeholder="Search" aria-label="Search">
+            <form class="d-flex" role="search" method="get" action="/search">
+              <input class="form-control me-2 bg-light" type="search" placeholder="Search" aria-label="Search" name="query" autocomplete="off">
               <button class="btn btn-outline-light" type="submit">Search</button>
             </form>
           </div>
         </div>
       </nav>
+    </div>
 
 {% block body %}{% endblock body %}
+
 
 <footer class="bg-dark text-light" style="margin-top:5rem">
   <div class="container py-4">
     <div class="row fw-lighter">
       <div class="col-lg-6">
-        <h5 class="footer">About DailyAI</h5>
+        <h5 class="footer">About NeuroFeed</h5>
         <p>Welcome to AI Insights Daily, your go-to source for daily updates and deep dives into the fascinating world of artificial intelligence. Our blog combines the latest advancements in AI with expert analysis to bring you concise and informative articles. From breakthrough technologies to practical applications, we explore the ever-expanding landscape of AI, keeping you informed and inspired.</p>
       </div>
       <div class="col-lg-6">
@@ -69,7 +72,7 @@
     </div>
   </div>
   <div class="text-center py-2 bg-dark">
-    &copy; 2023 Synapse Digest. All rights reserved.
+    &copy; 2023 NeuroFeed. All rights reserved.
   </div>
 </footer>
 
