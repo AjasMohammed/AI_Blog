@@ -19,7 +19,7 @@ class Post(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField(max_length=10000)
     time_stamp = models.DateTimeField(auto_now_add=True)
-    # slug = models.CharField(max_length=1000, default="", null=False)
+    tags = models.CharField(max_length=10000, default="", null=False)
 
     def __str__(self):
         return self.title

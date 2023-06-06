@@ -1,0 +1,36 @@
+{% extends 'basic.html' %}
+
+{% block title %}Results:{% endblock title %}
+
+{% block body %}
+
+<div class="container" style="margin-top: 8rem;">
+{% if posts|length < 1 %}
+<p> No Results Found</p>
+    your search query: <b> "{{query}}" </b> did not match any documents.<br><br>
+    suggestions: <br><br>
+  <ul>
+    <li>Try different keyword</li>
+  </ul>
+
+{% endif %}
+
+{% for post in posts %}
+<div class="card shadow-sm p-3 mb-5 bg-body-tertiary rounded" style="margin-bottom: 2rem;">
+    <div class="card-body">
+      <h5 class="card-title display-6 fw-normal cardhead">{{post.title}}</h5>
+      <p class="card-text">{{post.content | truncatechars:500|safe}}</p>
+      <a href="blog/{{post.serial_no}}" 
+         class="btn btn-outline-dark" 
+         style="border-radius:2rem"
+         data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Continue Reading" data-bs-custom-class="custom-tooltip">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="25" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+      </svg></a>
+    </div>
+  </div>
+{% endfor %}
+
+</div>
+
+{% endblock body %}
