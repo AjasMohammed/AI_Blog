@@ -1,6 +1,6 @@
 from celery import shared_task
 from .models import BlogUrl, Post
-from bardapi import Bard
+from bard_ai import call_bard
 import re
 import random
 from bs4 import BeautifulSoup as bs
@@ -8,8 +8,7 @@ from bs4 import BeautifulSoup as bs
 
 def do_job(url):
     
-***REMOVED***
-    bard = Bard(token=token)
+    bard = call_bard()
     
     instruction_1 = """
 You are an advanced AI tasked with analyzing a given URL and identifying the newest topic that has not been selected before. Your goal is to provide a brief summary of the selected topic in a format that includes a suitable title for the content followed by two or three paragraphs.
