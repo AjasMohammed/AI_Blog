@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'admin_panal.apps.AdminPanalConfig',
     'django_celery_results',
     'django_celery_beat',
+
+    "agent"
 ]
 
 MIDDLEWARE = [
@@ -147,3 +149,4 @@ CELERY_RESULT_BACKEND = 'django-db'
 # CELERY BEAT
 
 CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
+GOOGLE_API_KEY = config("GOOGLE_API_KEY")
