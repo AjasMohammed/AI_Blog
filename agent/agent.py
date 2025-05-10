@@ -52,6 +52,8 @@ The module uses the `uuid` library to generate unique IDs for each blog post.
 """
 
 # @shared_task
+
+
 def fetch_feed():
     """
     Fetch an RSS feed from a randomly selected URL from the `BlogUrl` table.
@@ -64,7 +66,18 @@ def fetch_feed():
     if not url_obj:
         return None
     url = url_obj.url
+    print('URL: ', url)
     feed = feedparser.parse(url)
+    cleaned_feed = [
+        {
+            "title": entry.title,
+            "summary": entry.summary,
+            "author": entry.author,
+            "tags": entry.tags,
+            "id": entry.id,
+        }
+        for entry in feed.entries
+    ]
 
     user_message = UserMessage.objects.create(
         url=url,
@@ -95,55 +108,58 @@ def ask_llm(feed, user_message) -> dict:
 
     # feed = result["feed"]
     # user_message = result["user_message"]
-    llm = settings.LLM
+    try:
+        llm = settings.LLM
 
-    prompt_template = ChatPromptTemplate.from_messages(
-        [
-            ("system", "You are an expert content writer and blog generator."),
-            ("human",
-             """
-            Analyze the provided RSS feed data and the links associated with each topic. For each topic, generate a professional-quality blog post by researching additional context using the provided external links.
+        prompt_template = ChatPromptTemplate.from_messages(
+            [
+                ("system", "You are an expert content writer and blog generator."),
+                ("human",
+                 """
+                Analyze the provided RSS feed data and the links associated with each topic. For each topic, generate a professional-quality blog post by researching additional context using the provided external links.
 
-            Return each blog post as a **well-formatted markdown document** that includes:
+                Return each blog post as a **well-formatted markdown document** that includes:
 
-            - A compelling **title** (formatted with `#` in markdown).
-            - A concise and informative **summary** paragraph.
-            - Multiple **sections**, each with:
-            - A markdown subheading (`##` or `###`)
-            - 3–4 paragraphs of detailed, engaging content
-            - Any relevant bullet points, inline formatting, or blockquotes
-            - A list of **external links** used, formatted as markdown: `[Link Title](https://example.com)`
-            - A list of **relevant tags** at the end (formatted like a tag list)
+                - A compelling **title** (formatted with `#` in markdown).
+                - A concise and informative **summary** paragraph.
+                - Multiple **sections**, each with:
+                - A markdown subheading (`##` or `###`)
+                - 3–4 paragraphs of detailed, engaging content
+                - Any relevant bullet points, inline formatting, or blockquotes
+                - A list of **external links** used, formatted as markdown: `[Link Title](https://example.com)`
+                - A list of **relevant tags** at the end (formatted like a tag list)
 
-            Format the entire content strictly in **markdown**, using appropriate syntax for:
-            - Headings
-            - Paragraphs
-            - Lists
-            - Emphasis (e.g., `**bold**`, `*italic*`)
-            - External links
+                Format the entire content strictly in **markdown**, using appropriate syntax for:
+                - Headings
+                - Paragraphs
+                - Lists
+                - Emphasis (e.g., `**bold**`, `*italic*`)
+                - External links
 
-            Ensure the tone is professional and easy to read, and that the blog post delivers value to readers. The content should read like it belongs on a high-quality tech or business blog.
-            """
-             ),
-            ("human", "RSSFeed: {feed}."),
-        ]
-    )
+                Ensure the tone is professional and easy to read, and that the blog post delivers value to readers. The content should read like it belongs on a high-quality tech or business blog.
+                """
+                 ),
+                ("human", "RSSFeed: {feed}."),
+            ]
+        )
 
-    structured_llm = llm.with_structured_output(blog_schema_v2)
-    chain = prompt_template | structured_llm
-    response = chain.invoke({"feed": str(feed)})
-
+        structured_llm = llm.with_structured_output(blog_schema_v2)
+        chain = prompt_template | structured_llm
+        response = chain.invoke({"feed": str(feed)})
+        print("AI RESPONSE: ", response)
+    except Exception as e:
+        print(f"Model Error: {e}")
+        response = None
     model_message = ModelMessage.objects.create(
         parent=user_message,
         content=json.dumps(response),
         model_used=settings.AI_MODEL
     )
-
     return response
 
 
 # @shared_task
-def save_blog_posts(data: list):
+def save_blog_posts(data: str | dict):
     """
     Save the generated blog posts to the `BlogPost` table, along with any new tags
     that were generated by the AI model.
@@ -151,17 +167,20 @@ def save_blog_posts(data: list):
     Args:
         data: A list of structured blog posts to save.
     """
-    print('DATA: ', data)
     if data is None:
         return
+    elif isinstance(data, str):
+        data = json.loads(data)
+    print('DATA TYPE: ', type(data))
+    print('DATA: ', data)
     existing_tags = set(Tags.objects.all().values_list("name", flat=True))
     new_tags = {}
     posts_tags = {}
     new_posts = {}
-    for post in data:
+    for post in data['feeds']:
         uid = uuid.uuid4()
         post_tags = list(
-            map(lambda tag: tag.lower().replace(" ", "-"), post.get("tags", [])))
+            map(lambda tag: tag.lower().replace(" ", "-"), post.pop("tags", [])))
         tags = [Tags(name=tag)
                 for tag in post_tags if tag not in existing_tags]
         new_tags[uid] = tags
@@ -181,5 +200,3 @@ def save_blog_posts(data: list):
             tags = [tag_map[name]
                     for name in posts_tags[uid] if name in tag_map]
             post.tags.add(*tags)
-
-

@@ -25,4 +25,4 @@ class ModelMessage(BaseMessageModel):
     class Meta:
         db_table = 'model_message'
     def __str__(self):
-        return f"{self.ai_model} - {self.parent.url}"
+        return f"{self.parent.url}"
