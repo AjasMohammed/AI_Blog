@@ -8,7 +8,7 @@
 
 # def do_job(url):
 
-# ***REMOVED***
+#     token = ""  # Replace with your Bard API token
 #     bard = Bard(token=token)
 
 #     instruction_1 = """
