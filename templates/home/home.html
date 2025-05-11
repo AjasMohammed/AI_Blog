@@ -24,9 +24,9 @@ Array.from(previews).forEach((element)=>{
 }
 
 .blog-post {
-  margin-bottom: 4rem; 
+  margin-bottom: 4rem;
   background-color: #f9f9f9;
-  padding: 2rem; 
+  padding: 2rem;
 }
 
 .blog-post h2 {
@@ -48,7 +48,7 @@ Array.from(previews).forEach((element)=>{
 .recent-posts h3 {
   margin-top: 0;
   color: #333;
-  font-size: 1.25rem; 
+  font-size: 1.25rem;
   font-weight: bold;
 }
 
@@ -59,7 +59,7 @@ Array.from(previews).forEach((element)=>{
 }
 
 .recent-posts li {
-  margin-bottom: 1rem; 
+  margin-bottom: 1rem;
 }
 
 .recent-posts li a {
@@ -74,15 +74,15 @@ Array.from(previews).forEach((element)=>{
 
 /* Responsive Styles */
 
-@media (max-width: 48rem) { 
+@media (max-width: 48rem) {
   .content {
     margin: 8rem auto;
   }
-  
+
   .blog-post h2 {
     font-size: 1.25rem;
   }
-  
+
   .recent-posts h3 {
     font-size: 1.125rem;
   }
@@ -119,7 +119,7 @@ Array.from(previews).forEach((element)=>{
       <h3 style='text-decoration:underline' class="fw-medium">Recent Posts</h3>
       <ul class="list-group list-group-flush">
         {% for post in posts|slice:"3:7" %}
-        <li class="list-group-item"><a href="blog/{{post.serial_no}}">{{post.title}}</a></li>
+        <li class="list-group-item"><a href="blog/{{post.uid}}">{{post.title}}</a></li>
         {% endfor %}
       </ul>
     </div>

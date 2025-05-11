@@ -1,0 +1,344 @@
+{
+    "feeds": [
+        {
+            "title": "Apple tries to delay ruling that bars it from taking a cut on external app payments",
+            "sections": [
+                {
+                    "content": "Apple's attempt to delay the implementation of a court ruling highlights the ongoing tension between the tech giant and app developers regarding payment systems. The original ruling sought to allow developers to use their own payment systems, bypassing Apple's commission fees. Apple argues that delaying the ruling is necessary to address potential security and privacy concerns that could arise from alternative payment methods.",
+                    "heading": "Apple's Stance"
+                },
+                {
+                    "content": "The implications of this legal battle extend beyond Apple and its developers. The outcome could reshape the app economy, potentially leading to lower prices for consumers and increased competition among payment platforms. However, it also raises questions about the role of platform owners in regulating app ecosystems and ensuring user safety.",
+                    "heading": "Broader Implications"
+                }
+            ],
+            "summary": "Apple is trying to delay a court ruling that forces the company to let iOS app developers accept payments via non-Apple systems and avoid paying a cut.",
+            "source_links": [
+                "https://techcrunch.com/2025/05/08/apple-urges-court-to-suspend-ruling-that-bars-it-from-taking-a-cut-on-external-app-payments/"
+            ]
+        },
+        {
+            "sections": [
+                {
+                    "content": "Bosch Ventures' decision to focus on North America reflects the growing importance of the region in the global deep-tech landscape. The $270 million fund will provide crucial capital for startups working on cutting-edge technologies in areas such as AI, climate tech, and energy. This move could accelerate innovation and create new opportunities for collaboration between Bosch and North American startups.",
+                    "heading": "Strategic Shift"
+                },
+                {
+                    "content": "The investment strategy aligns with Bosch's broader goals of fostering innovation and addressing global challenges. By investing in deep-tech startups, Bosch aims to tap into new ideas and technologies that can drive growth and create a positive impact on society. This approach underscores the increasing role of corporate venture capital in shaping the future of technology.",
+                    "heading": "Investment Focus"
+                }
+            ],
+            "title": "Bosch Ventures is turning its attention to North America with new $270M fund",
+            "summary": "The venture arm of Bosch has a new $270 million fund that will continue its tradition of investing in deep-tech startups. This time, however, Bosch Ventures plans to put more of its money into North American startups.",
+            "source_links": [
+                "https://techcrunch.com/2025/05/08/bosch-ventures-new-270m-fund-is-turning-its-attention-to-north-america/"
+            ]
+        },
+        {
+            "sections": [
+                {
+                    "content": "Fidji Simo's move from Instacart to OpenAI marks a significant shift in her career and underscores the growing importance of AI in various industries. As Application CEO, Simo will likely play a key role in shaping the development and deployment of OpenAI's AI technologies across different applications and sectors. Her experience at Instacart, a company that has heavily invested in AI, will be valuable in her new role.",
+                    "heading": "New Leadership at OpenAI"
+                },
+                {
+                    "content": "This transition also reflects the increasing convergence of AI with other industries, such as e-commerce and food delivery. Simo's appointment suggests that OpenAI is looking to expand its reach and impact by applying its AI technologies to real-world problems and opportunities in diverse sectors. This trend is likely to continue as AI becomes more integrated into everyday life.",
+                    "heading": "AI Convergence"
+                }
+            ],
+            "title": "Instacart CEO Fidji Simo is joining OpenAI",
+            "summary": "Simo, already a board member at OpenAI, will transition out of Instacart over the next few months and join the AI company full-time as Application CEO.",
+            "source_links": [
+                "https://techcrunch.com/2025/05/07/instacart-ceo-fidji-simo-is-joining-openai/"
+            ]
+        },
+        {
+            "sections": [
+                {
+                    "content": "Fastino's innovative approach to AI model training challenges the conventional wisdom that larger models and expensive hardware are always necessary. By focusing on smaller, task-specific models trained on affordable gaming GPUs, Fastino aims to democratize AI development and make it more accessible to a wider range of organizations and individuals. This approach could accelerate AI innovation and unlock new applications in resource-constrained environments.",
+                    "heading": "Democratizing AI"
+                },
+                {
+                    "content": "The $17.5 million funding round led by Khosla Ventures validates Fastino's vision and potential. The investment will likely be used to scale up its operations, expand its team, and further develop its AI model architecture. Fastino's success could inspire other startups to explore alternative approaches to AI development and challenge the dominance of large tech companies in the field.",
+                    "heading": "Funding Validation"
+                }
+            ],
+            "title": "Fastino trains AI models on cheap gaming GPUs and just raised $17.5M led by Khosla",
+            "summary": "Tech giants like to boast about trillion-parameter AI models that require massive and expensive GPU clusters. But Fastino is taking a different approach. The Palo Alto-based startup says it has invented a new kind of AI model architecture that\u2019s intentionally small and task-specific. The models are so small they\u2019re trained with low-end gaming GPUs worth [&#8230;]",
+            "source_links": [
+                "https://techcrunch.com/2025/05/07/fastino-trains-ai-models-on-cheap-gaming-gpus-and-just-raised-17-5m-led-by-khosla/"
+            ]
+        },
+        {
+            "sections": [
+                {
+                    "content": "Stripe's unveiling of an AI foundation model for payments marks a significant step in the integration of AI into the fintech industry. By leveraging AI, Stripe aims to enhance its payment processing capabilities, improve fraud detection, and personalize the customer experience. This move could further solidify Stripe's position as a leading provider of online payment solutions.",
+                    "heading": "AI in Fintech"
+                },
+                {
+                    "content": "The deeper partnership with Nvidia underscores the importance of hardware acceleration in AI development. By collaborating with Nvidia, Stripe gains access to cutting-edge GPU technology and expertise, which will enable it to train and deploy its AI models more efficiently. This collaboration highlights the symbiotic relationship between AI software and hardware providers.",
+                    "heading": "Hardware Partnership"
+                }
+            ],
+            "title": "Stripe unveils AI foundation model for payments, reveals \u2018deeper partnership\u2019 with Nvidia",
+            "summary": "Fintech giant Stripe announced Wednesday a slew of new product launches at its annual Stripe Sessions user event. The highlights include a new AI foundation model for payments; stablecoin-powered accounts; a new Orchestration offering, and a recent migration with chip behemoth Nvidia. Stripe\u2019s payments foundation model has been trained on tens of billions of transactions, [&#8230;]",
+            "source_links": [
+                "https://techcrunch.com/2025/05/07/stripe-unveils-ai-foundation-model-for-payments-reveals-deeper-partnership-with-nvidia/"
+            ]
+        },
+        {
+            "title": "A comprehensive list of 2025 tech layoffs",
+            "sections": [
+                {
+                    "content": "The comprehensive list of tech layoffs in 2025 paints a sobering picture of the industry's current state. The layoffs, spanning from Big Tech companies to startups, reflect a combination of factors, including economic uncertainty, over-hiring during the pandemic, and a shift in investment priorities. This trend could have significant implications for the tech workforce and the overall innovation ecosystem.",
+                    "heading": "Industry Downturn"
+                },
+                {
+                    "content": "The layoffs highlight the need for tech workers to adapt to the changing demands of the industry. As companies streamline their operations and focus on profitability, employees with in-demand skills, such as AI and cybersecurity, are likely to be more resilient. Continuous learning and upskilling will be crucial for tech workers to navigate the evolving job market.",
+                    "heading": "Adapting to Change"
+                }
+            ],
+            "summary": "A complete list of all the known layoffs in tech, from Big Tech to startups, broken down by month throughout 2024.",
+            "source_links": [
+                "https://techcrunch.com/2025/05/07/tech-layoffs-2025-list/"
+            ]
+        },
+        {
+            "title": "Tesla\u2019s \u2018Robotaxi\u2019 and \u2018Cybercab\u2019 trademarks hit roadblocks ahead of June launch",
+            "sections": [
+                {
+                    "content": "Tesla's trademark challenges for ",
+                    "heading": "Trademark Hurdles"
+                },
+                {
+                    "content": "The outcome of these trademark disputes could have implications for Tesla's branding and marketing efforts. If Tesla is unable to secure the ",
+                    "heading": "Branding Implications"
+                }
+            ],
+            "summary": "Tesla&#8217;s attempt to trademark the term &#8220;Robotaxi&#8221; in reference to its vehicles has been refused by the U.S. Patent and Trademark Office for being too generic, according to a new filing. Another application by Tesla to trademark the term &#8220;Robotaxi&#8221; for its upcoming ride-hailing service is still under examination by the office. In addition, applications [&#8230;]",
+            "source_links": [
+                "https://techcrunch.com/2025/05/07/teslas-robotaxi-and-cybercab-trademarks-hit-roadblocks-ahead-of-june-launch/"
+            ]
+        },
+        {
+            "title": "OpenAI and the FDA are reportedly discussing AI for drug evaluations",
+            "sections": [
+                {
+                    "content": "The discussions between OpenAI and the FDA highlight the growing interest in using AI to accelerate drug evaluations. AI has the potential to analyze vast amounts of data, identify patterns, and predict outcomes, which could significantly reduce the time and cost associated with drug development. This collaboration could pave the way for faster access to life-saving treatments.",
+                    "heading": "AI in Drug Development"
+                },
+                {
+                    "content": "However, the use of AI in drug evaluations also raises ethical and regulatory considerations. It is crucial to ensure that AI algorithms are accurate, unbiased, and transparent. The FDA will need to establish clear guidelines and standards for the use of AI in drug development to protect patient safety and ensure the integrity of the evaluation process.",
+                    "heading": "Ethical Considerations"
+                }
+            ],
+            "summary": "OpenAI has met with officials from the U.S. Food and Drug Administration (FDA) to discuss the agency&#8217;s use of AI to speed up drug evaluations, Wired reported on Wednesday. According to the report, OpenAI and the FDA have discussed a project called cderGPT, which seems to be an AI tool for the Center for Drug [&#8230;]",
+            "source_links": [
+                "https://techcrunch.com/2025/05/07/openai-and-the-fda-are-reportedly-discussing-ai-for-drug-evaluations/"
+            ]
+        },
+        {
+            "title": "The Papal \u2018conclave cam\u2019 is slow TV",
+            "sections": [
+                {
+                    "content": "The Papal conclave cam exemplifies the phenomenon of ",
+                    "heading": "The Allure of Slow TV"
+                },
+                {
+                    "content": "The popularity of the conclave cam raises questions about the nature of entertainment and the human desire for connection. In a world saturated with fast-paced content, the slow, deliberate pace of the conclave cam offers a sense of calm and contemplation. The shared experience of watching the chimney, waiting for a sign, creates a sense of community among viewers.",
+                    "heading": "Meaning and Connection"
+                }
+            ],
+            "summary": "On YouTube, hundreds of thousands of viewers around the world are staring at an unmoving broadcast of the Sistine Chapel chimney. Occasionally, a seagull will swoop in and perch atop the roof for a few minutes. But for the most part, nothing happens. On Wednesday, the College of Cardinals started the process of picking the [&#8230;]",
+            "source_links": [
+                "https://techcrunch.com/2025/05/07/the-papal-conclave-cam-is-slow-tv/"
+            ]
+        },
+        {
+            "title": "Delta\u2019s game emulator becomes a Patreon-supported app after US App Store policy changes",
+            "sections": [
+                {
+                    "content": "Delta's move to integrate Patreon support highlights the impact of recent App Store policy changes on app developers. The court decision has allowed developers to explore alternative monetization strategies, such as linking to external membership pages, without having to pay Apple's commission fees. This could lead to greater financial independence for developers and more diverse funding models in the app ecosystem.",
+                    "heading": "Monetization Strategies"
+                },
+                {
+                    "content": "This change also reflects the evolving relationship between app platforms and developers. As developers seek greater control over their revenue streams and user relationships, platforms may need to adapt their policies and business models to remain competitive. The future of the app economy will likely be shaped by the ongoing negotiation between platforms and developers.",
+                    "heading": "Platform Evolution"
+                }
+            ],
+            "summary": "A game emulator called Delta is taking advantage of the recent court decision around Apple&#8217;s App Store to support its business by linking to its Patreon membership page. The update, approved Wednesday for release on the U.S. App Store, allows Delta users to join the Delta team&#8217;s Patreon directly from the mobile app, without giving [&#8230;]",
+            "source_links": [
+                "https://techcrunch.com/2025/05/07/deltas-game-emulator-becomes-a-patreon-supported-app-after-us-app-store-policy-changes/"
+            ]
+        },
+        {
+            "sections": [
+                {
+                    "content": "Rove's innovative approach to helping Gen Z earn airline miles addresses a specific need in the market. Many young people are hesitant to apply for credit cards, but still desire to travel and experience new cultures. Rove provides a solution by enabling them to earn miles through alternative means, such as completing surveys or participating in promotions. This could open up new travel opportunities for Gen Z and foster brand loyalty.",
+                    "heading": "Targeting Gen Z"
+                },
+                {
+                    "content": "The success of Rove highlights the importance of understanding the unique needs and preferences of different generations. As Gen Z becomes an increasingly important consumer group, companies need to tailor their products and services to appeal to their values and lifestyles. Rove's focus on accessibility, convenience, and financial responsibility resonates with Gen Z and positions it for growth in the travel rewards market.",
+                    "heading": "Generational Marketing"
+                }
+            ],
+            "title": "Rove, founded by a 22-year-old, is helping Gen Z earn airline miles without credit cards",
+            "summary": "During his junior year study abroad, Max Morganroth, traveled to 30 countries, primarily flying in business and first class. His jet-setting was funded almost entirely by airline points he collected through strategic credit card applications and miles redemptions. Morganroth told TechCrunch that just about everyone he knew was &#8220;begging&#8221; him to teach them how to [&#8230;]",
+            "source_links": [
+                "https://techcrunch.com/2025/05/07/rove-founded-by-a-22-year-old-is-helping-gen-z-earn-airline-miles-without-credit-cards/"
+            ]
+        },
+        {
+            "sections": [
+                {
+                    "content": "Anthropic's launch of an API for AI-powered web search marks a significant step in the evolution of AI models. By enabling Claude to access and process real-time information from the web, Anthropic aims to enhance the accuracy, relevance, and usefulness of its AI-powered applications. This could lead to more sophisticated and personalized search experiences for users.",
+                    "heading": "Enhancing AI Models"
+                },
+                {
+                    "content": "The API also empowers developers to build new and innovative applications that leverage Claude's web search capabilities. This could foster a wave of creativity and experimentation in the AI space, leading to the development of novel solutions for various industries and use cases. Anthropic's API could become a key building block for the next generation of AI-powered applications.",
+                    "heading": "Empowering Developers"
+                }
+            ],
+            "title": "Anthropic rolls out an API for AI-powered web search",
+            "summary": "Anthropic is launching a new API that allows its Claude AI models to search across the web. Developers using it can build Claude-powered apps that deliver up-to-date info, the company said in a press release published Wednesday. The rollout of the API comes as AI companies look to augment their models in various ways that [&#8230;]",
+            "source_links": [
+                "https://techcrunch.com/2025/05/07/anthropic-rolls-out-an-api-for-ai-powered-web-search/"
+            ]
+        },
+        {
+            "sections": [
+                {
+                    "content": "Snap Map's achievement of 400 million monthly active users underscores its popularity and value as a core feature of Snapchat. The map has evolved from a simple location-sharing tool to a platform for discovering events, exploring new places, and connecting with communities. This milestone highlights the importance of location-based services in the social media landscape.",
+                    "heading": "Location-Based Services"
+                },
+                {
+                    "content": "The success of Snap Map also demonstrates the power of continuous innovation and adaptation. By adding new features and functionalities over time, Snapchat has kept the map relevant and engaging for its users. This approach has enabled Snap Map to maintain its position as a leading location-based service in a competitive market.",
+                    "heading": "Continuous Innovation"
+                }
+            ],
+            "title": "Snap Map reaches new milestone of 400M monthly active users",
+            "summary": "Snapchat announced on Wednesday that Snap Map now has more than 400 million monthly active users, a new milestone for one of the app&#8217;s core features. Launched in 2017, Snap Map was originally a way for users to see their friends&#8217; locations and browse public snaps from around the world. Over time, the feature has [&#8230;]",
+            "source_links": [
+                "https://techcrunch.com/2025/05/07/snap-map-reaches-new-milestone-of-400m-monthly-active-users/"
+            ]
+        },
+        {
+            "sections": [
+                {
+                    "content": "Lucid Motors' admission of early ",
+                    "heading": "Quality Control Challenges"
+                },
+                {
+                    "content": "Addressing these ",
+                    "heading": "Customer Confidence"
+                }
+            ],
+            "title": "Lucid Motors\u2019 Gravity SUV dealing with early \u2018hiccups,\u2019 interim CEO says",
+            "summary": "Lucid Motors has been working through some quality &#8220;hiccups&#8221; in the early stages of delivering its long-awaited electric SUV, according to interim CEO Marc Winterhoff. &#8220;It is true that we had some technical issues that we had to overcome around software&#8221; and the Gravity&#8217;s heads-up display, Winterhoff said on a conference call Tuesday. &#8220;There have [&#8230;]",
+            "source_links": [
+                "https://techcrunch.com/2025/05/07/lucid-motors-gravity-suv-dealing-with-early-hiccups-interim-ceo-says/"
+            ]
+        },
+        {
+            "title": "SpaceX\u2019s Starlink has become a big benefactor of Trump\u2019s tariff trade war, leaked memos show",
+            "sections": [
+                {
+                    "content": "The leaked memos revealing Starlink's benefit from the Trump administration's tariff trade war raise questions about the intersection of politics, trade, and technology. The U.S. government's promotion of Starlink as a strategic asset in trade negotiations highlights the growing importance of satellite internet services in global affairs. This could have implications for the future of international trade and diplomacy.",
+                    "heading": "Political Influence"
+                },
+                {
+                    "content": "The situation also raises concerns about potential conflicts of interest and the fairness of trade practices. If countries believe that adopting Starlink could improve their trade relations with the U.S., it could create an uneven playing field for other satellite internet providers. This underscores the need for transparency and ethical considerations in the intersection of government policy and private enterprise.",
+                    "heading": "Ethical Concerns"
+                }
+            ],
+            "summary": "SpaceX\u2019s satellite internet service, Starlink, is directly benefiting from the Trump administration&#8217;s tariff trade war, according to leaked State Department memos obtained by the Washington Post.\"\nThe memos show the U.S. pushing countries to adopt Starlink. Some show that countries believe that doing so could help lubricate their U.S. trade and tariff negotiations. One memo [&#8230;]",
+            "source_links": [
+                "https://techcrunch.com/2025/05/07/spacexs-starlink-has-become-a-big-benefactor-of-trumps-tariff-trade-war-leaked-memos-show/"
+            ]
+        },
+        {
+            "title": "Amazon debuts a warehouse robot with a sense of \u2018touch\u2019",
+            "sections": [
+                {
+                    "content": "Amazon's development of a warehouse robot with a sense of touch represents a significant advancement in robotics and automation. The Vulcan robot, equipped with force sensors, can handle items more carefully and efficiently, reducing damage and improving warehouse operations. This innovation could lead to greater productivity and lower costs for Amazon.",
+                    "heading": "Robotics Advancement"
+                },
+                {
+                    "content": "The introduction of Vulcan also raises questions about the future of work in warehouses. As robots become more capable and sophisticated, they could displace human workers in certain tasks. Amazon and other companies will need to address the social and economic implications of automation, such as providing training and support for displaced workers.",
+                    "heading": "Future of Work"
+                }
+            ],
+            "summary": "Amazon says that it has developed a new warehouse robot, Vulcan, that can &#8220;feel&#8221; some of the items it touches. The two-armed Vulcan, which can maneuver goods inside the storage compartments Amazon has in its warehouses, uses\nforce sensors to help it know when it makes contact with an object. One arm rearranges items in a [&#8230;]",
+            "source_links": [
+                "https://techcrunch.com/2025/05/07/amazon-debuts-a-warehouse-robot-with-a-sense-of-touch/"
+            ]
+        },
+        {
+            "sections": [
+                {
+                    "content": "The court filing revealing Meta executives' concerns about losing to TikTok provides insights into the competitive dynamics of the social media industry. The admission that Facebook was struggling to compete with TikTok highlights the challenges that established platforms face in adapting to new trends and emerging competitors. This could intensify the competition among social media companies and drive further innovation.",
+                    "heading": "Competitive Dynamics"
+                },
+                {
+                    "content": "The FTC's antitrust lawsuit against Meta underscores the regulatory scrutiny that tech giants are facing. The lawsuit alleges that Meta has engaged in anti-competitive practices to maintain its dominance in the social media market. The outcome of the lawsuit could have significant implications for Meta's business practices and the future of the social media industry.",
+                    "heading": "Regulatory Scrutiny"
+                }
+            ],
+            "title": "New court filing shows that Meta execs agreed that Facebook was losing to TikTok",
+            "summary": "Meta CEO Mark Zuckerberg, Instagram head Adam Mosseri, and other Meta execs thought that TikTok was beating Meta at its own game. That&#8217;s according to a new filing in the U.S. Federal Trade Commission&#8217;s antitrust lawsuit against the tech giant, published on Monday. The document, dated February 2022, includes conversations among a number of Meta [&#8230;]",
+            "source_links": [
+                "https://techcrunch.com/2025/05/07/new-court-filing-shows-that-meta-execs-agreed-that-facebook-was-losing-to-tiktok/"
+            ]
+        },
+        {
+            "sections": [
+                {
+                    "content": "The proposed $30 million funding for BluSmart reflects the investors' belief in the potential of the Indian cab-hailing market and the company's ability to compete with Uber. The funding could provide BluSmart with the resources it needs to resume operations, invest in its technology, and expand its fleet of electric vehicles. This could revitalize the company and offer consumers a more sustainable transportation option.",
+                    "heading": "Investment in Sustainability"
+                },
+                {
+                    "content": "The condition that BluSmart's co-founder resign highlights the challenges that startups face in balancing growth with governance. Investors often seek to ensure that companies have strong leadership and management teams in place to execute their business plans effectively. The outcome of this situation could set a precedent for how investors handle leadership transitions in struggling startups.",
+                    "heading": "Leadership Transition"
+                }
+            ],
+            "title": "BluSmart investors propose $30M in new funding to revive the Uber rival",
+            "summary": "A group of investors are considering a plan to inject another $30 million into BluSmart in a bid to revive the Indian cab-hailing startup, which abruptly halted operations last month, TechCrunch has learned. The proposal from these existing investors has a catch: It&#8217;s contingent on BluSmart co-founder Anmol Singh Jaggi agreeing to resign. The proposed [&#8230;]",
+            "source_links": [
+                "https://techcrunch.com/2025/05/07/blusmart-investors-propose-resolution-30m-in-new-funding-to-revive-the-uber-rival/"
+            ]
+        },
+        {
+            "sections": [
+                {
+                    "content": "OpenAI's initiative to partner with governments to grow AI infrastructure reflects the increasing recognition of AI as a strategic asset. By collaborating with governments, OpenAI aims to accelerate the development and deployment of AI technologies, foster innovation, and address societal challenges. This could lead to greater economic growth and improved public services.",
+                    "heading": "Strategic Partnerships"
+                },
+                {
+                    "content": "However, the partnership between OpenAI and governments also raises questions about data privacy, security, and ethical considerations. It is crucial to ensure that AI systems are developed and deployed in a responsible and transparent manner, with appropriate safeguards in place to protect individual rights and prevent misuse. The success of this initiative will depend on addressing these concerns effectively.",
+                    "heading": "Ethical Considerations"
+                }
+            ],
+            "title": "OpenAI wants to team up with governments to grow AI infrastructure",
+            "summary": "OpenAI is launching a program, OpenAI for Countries, that the company says will enable it to build out the local infrastructure needed to better serve international AI customers. As a part of the new program, OpenAI will partner with governments to assist with efforts like building out data center capacity and customizing OpenAI&#8217;s products, including [&#8230;]",
+            "source_links": [
+                "https://techcrunch.com/2025/05/07/openai-wants-to-team-up-with-governments-to-grow-ai-infrastructure/"
+            ]
+        },
+        {
+            "title": "ServiceNow acquires Data.World months after snatching up Moveworks",
+            "sections": [
+                {
+                    "content": "ServiceNow's acquisition of Data.World highlights the growing importance of data governance and AI in enterprise workflow management. By integrating Data.World's data catalog and governance platform, ServiceNow aims to enhance its ability to automate workflows, improve decision-making, and deliver personalized experiences for its customers. This acquisition could strengthen ServiceNow's position as a leading provider of enterprise workflow solutions.",
+                    "heading": "Data Governance and AI"
+                },
+                {
+                    "content": "The acquisition also reflects the increasing consolidation in the enterprise software market. As companies seek to offer more comprehensive and integrated solutions, they are acquiring smaller players with specialized capabilities. This trend could lead to fewer independent software vendors and greater concentration of market power among the largest players.",
+                    "heading": "Market Consolidation"
+                }
+            ],
+            "summary": "Enterprise workflow management platform ServiceNow on Wednesday announced its second AI-related acquisition this year. ServiceNow said that it has signed a definitive agreement to acquire Data.World, a cloud-native data catalog and data governance platform. Austin, Texas-based Data.World was founded in 2015 and previously raised more than $130 million in venture financing from firms such as [&#8230;]",
+            "source_links": [
+                "https://techcrunch.com/2025/05/07/servicenow-acquires-data-world-two-months-after-acquiring-moveworks/"
+            ]
+        }
+    ]
+}

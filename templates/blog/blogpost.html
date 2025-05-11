@@ -1,6 +1,8 @@
 {% extends 'basic.html' %}
+{% load markdown_extra %}
+
 {% block title %}BlogPost{% endblock title %}
-  
+
 {% block style %}
   h4{
 margin-bottom: 1rem;
@@ -19,8 +21,8 @@ font-weight: 400;
     <p class="blog-post-meta text-body-secondary" style="margin-bottom:3rem;">
       {{post.time_stamp}}
     </p>
-  
-    <p>{{post.content|safe}}</p>
+
+    <p>{{post.content|markdownify|safe}}</p>
     <hr style="margin-top: 2rem;" />
   </div>
   {% endblock body%}

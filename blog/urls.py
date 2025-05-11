@@ -5,5 +5,5 @@ from . import views
 
 urlpatterns = [
     path('', views.bloghome, name='bloghome'),
-    path('<int:sno>/', views.blog_post, name='blog_post'),
+    path('<uuid:uid>/', views.blog_post, name='blog_post'),
 ]
