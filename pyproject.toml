@@ -22,6 +22,7 @@ dependencies = [
     "django>=4.2.2",
     "django-celery-beat>=2.8.0",
     "django-celery-results>=2.6.0",
+    "django-extensions>=4.1",
     "django-timezone-field>=5.1",
     "feedparser>=6.0.11",
     "idna>=3.4",

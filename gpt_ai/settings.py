@@ -45,8 +45,10 @@ INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'blog.apps.BlogConfig',
     'admin_panal.apps.AdminPanalConfig',
+
     'django_celery_results',
     'django_celery_beat',
+    "django_extensions",
 
     "agent.apps.AgentConfig",
 ]
