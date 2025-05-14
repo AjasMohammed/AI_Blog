@@ -1,16 +1,18 @@
 import React from 'react'
+import NeuroFeedLogo from '../NeuroFeedLogo/NeuroFeedLogo';
+import { NavLink } from "react-router-dom";
 
 function NavBar() {
   return (
       <nav className="bg-primary grid grid-cols-4 items-center place-content-center p-5 text-xl">
-          <div id="logo"><h2>NeuroFeed</h2></div>
+          <div id="logo"><NeuroFeedLogo /></div>
           <div
               id="menu"
-              className="col-span-2 flex gap-8 justify-center items-center font-extrabold text-secondary text-2xl"
+              className="col-span-2 flex gap-8 justify-center items-center font-extrabold text-secondary text-xl"
           >
-              <a>Home</a>
-              <a>Blog</a>
-              <a>More</a>
+              <NavLink to="/" className={({ isActive }) => (isActive ? "border-b-2 border-secondary px-3" : "")}>Home</NavLink>
+              <NavLink>Blog</NavLink>
+              <NavLink>More</NavLink>
           </div>
           <div id="search-bar" className="flex gap-3 justify-center">
               <input

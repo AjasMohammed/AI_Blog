@@ -32,7 +32,7 @@ class BlogPostDetailView(APIView):
         post = get_object_or_404(
             BlogPost.objects.prefetch_related('tags'), uid=uid)
         blog_serializer = BlogPostDetailSerializer(post)
-        related_posts = BlogPost.objects.filter(tags__in=post.tags.all().exclude(uid=uid)).distinct().order_by("-created_at")[:6]
+        related_posts = BlogPost.objects.filter(tags__in=post.tags.all()).exclude(uid=uid).distinct().order_by("-created_at")[:8]
         related_posts_serializer = BlogPostBaseSerializer(related_posts, many=True)
         serializer = {"post": blog_serializer.data,
                       "related_posts": related_posts_serializer.data}

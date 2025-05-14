@@ -5,8 +5,6 @@ from langchain_core.prompts import ChatPromptTemplate
 from .ai_output_schema import blog_schema_v2
 from .models import UserMessage, ModelMessage
 from admin_panal.models import BlogPost, Tags, BlogUrl
-import uuid
-from itertools import chain
 from django.db import transaction
 
 
@@ -163,33 +161,19 @@ def save_blog_posts(data: str | dict):
     elif isinstance(data, str):
         data = json.loads(data)
     try:
-        existing_tags = set(Tags.objects.all().values_list("name", flat=True))
-        new_tags = {}
-        posts_tags = {}
-        new_posts = {}
-        for post in data['feeds']:
-            uid = uuid.uuid4()
-            post_tags = list(
-                map(lambda tag: tag.lower().replace(" ", "-"), post.pop("tags", [])))
-            tags = [Tags(name=tag)
-                    for tag in post_tags if tag not in existing_tags]
-            new_tags[uid] = tags
-            new_posts[uid] = BlogPost(**post)
-            posts_tags[uid] = post_tags
         with transaction.atomic():
-            created_posts = BlogPost.objects.bulk_create(new_posts.values())
-            Tags.objects.bulk_create(chain.from_iterable(new_tags.values()))
-
-            all_tag_names = set(chain.from_iterable(posts_tags.values()))
-            all_tags = Tags.objects.filter(name__in=all_tag_names)
-            tag_map = {tag.name: tag for tag in all_tags}
-
-            uid_to_post = dict(zip(new_posts.keys(), created_posts))
-
-            for uid, post in uid_to_post.items():
-                tags = [tag_map[name]
-                        for name in posts_tags[uid] if name in tag_map]
-                post.tags.add(*tags)
-
+            for post in data['feeds']:
+                # Normalize tags to lowercase and replace spaces with dashes
+                post_tags = [tag.lower().replace(" ", "-") for tag in post.pop("tags", [])]
+                main_content, tags_in_content = post['content'].split("**Tags:**")
+                post['content'] = main_content
+                post_tags.extend(tags_in_content.lower().strip().split(", "))
+                new_post = BlogPost.objects.create(**post)
+                # Associate tags with the post
+                for tag in post_tags:
+                    tag, _ = Tags.objects.get_or_create(name=tag.replace(" ", "-"))
+                    new_post.tags.add(tag)
+    except json.JSONDecodeError as e:
+        print(f"Error decoding JSON: {e}")
     except Exception as e:
         print(f"Error saving blog posts: {e}")
