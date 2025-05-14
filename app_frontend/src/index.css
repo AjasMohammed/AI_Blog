@@ -19,3 +19,7 @@ body {
     --color-secondary: #F66435;
     --color-ternary: #4b4453;
 }
+
+.text-shadow{
+    text-shadow: 4px 4px 0 var(--color-ternary);
+}

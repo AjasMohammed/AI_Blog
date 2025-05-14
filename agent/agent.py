@@ -8,7 +8,6 @@ from admin_panal.models import BlogPost, Tags, BlogUrl
 import uuid
 from itertools import chain
 from django.db import transaction
-# from celery import shared_task
 
 
 """
@@ -51,8 +50,6 @@ The module uses the `itertools` library to chain together multiple iterables.
 The module uses the `uuid` library to generate unique IDs for each blog post.
 """
 
-# @shared_task
-
 
 def fetch_feed():
     """
@@ -66,29 +63,29 @@ def fetch_feed():
     if not url_obj:
         return None
     url = url_obj.url
-    print('URL: ', url)
     feed = feedparser.parse(url)
-    cleaned_feed = [
-        {
-            "title": entry.title,
-            "summary": entry.summary,
-            "author": entry.author,
-            "tags": entry.tags,
-            "id": entry.id,
-        }
-        for entry in feed.entries
-    ]
-
+    new_entries = []
+    old_entries = set(BlogPost.objects.all().values_list("post_id", flat=True))
+    for entry in feed.entries:
+        raw_id = raw_id = entry.get("post-id") or entry.get("id", "")
+        post_id = raw_id.split("/")[-1].split("=")[-1] if raw_id else None
+        if not post_id or post_id in old_entries:
+            continue
+        new_entries.append(entry)
+        if len(new_entries) == 5:
+            break
+    feed_dict = {
+        "feed": feed.feed,
+        "entries": new_entries if new_entries else feed.entries[:5],
+    }
     user_message = UserMessage.objects.create(
         url=url,
-        raw_data=json.dumps(feed),
+        raw_data=json.dumps(feed_dict),
         model_used=settings.AI_MODEL
     )
-    # return {"feed": feed, "user_message": user_message.pk}
-    return feed, user_message
+    return feed_dict, user_message
 
 
-# @shared_task
 def ask_llm(feed, user_message) -> dict:
     """
     Ask the Language Chain AI model to generate a blog post based on the feed.
@@ -103,11 +100,6 @@ def ask_llm(feed, user_message) -> dict:
         dict: A structured representation of the blog post, including the title,
             summary, sections, external links, and tags.
     """
-    # if result is None:
-    #     return None
-
-    # feed = result["feed"]
-    # user_message = result["user_message"]
     try:
         llm = settings.LLM
 
@@ -120,14 +112,15 @@ def ask_llm(feed, user_message) -> dict:
 
                 Return each blog post as a **well-formatted markdown document** that includes:
 
+                - unique **id** for the blog post.
                 - A compelling **title** (formatted with `#` in markdown).
                 - A concise and informative **summary** paragraph.
                 - Multiple **sections**, each with:
-                - A markdown subheading (`##` or `###`)
-                - 3–4 paragraphs of detailed, engaging content
-                - Any relevant bullet points, inline formatting, or blockquotes
-                - A list of **external links** used, formatted as markdown: `[Link Title](https://example.com)`
-                - A list of **relevant tags** at the end (formatted like a tag list)
+                - A markdown subheading (`##` or `###`).
+                - 3–4 paragraphs of detailed, engaging content with a minimum of 5000 words.
+                - Any relevant bullet points, inline formatting, or blockquotes.
+                - A list of **external links** used, formatted as markdown: `[Link Title](https://example.com)`.
+                - A list of **relevant tags** at the end (formatted like a tag list).
 
                 Format the entire content strictly in **markdown**, using appropriate syntax for:
                 - Headings
@@ -146,11 +139,10 @@ def ask_llm(feed, user_message) -> dict:
         structured_llm = llm.with_structured_output(blog_schema_v2)
         chain = prompt_template | structured_llm
         response = chain.invoke({"feed": str(feed)})
-        print("AI RESPONSE: ", response)
     except Exception as e:
         print(f"Model Error: {e}")
         response = None
-    model_message = ModelMessage.objects.create(
+    ModelMessage.objects.create(
         parent=user_message,
         content=json.dumps(response),
         model_used=settings.AI_MODEL
@@ -158,7 +150,6 @@ def ask_llm(feed, user_message) -> dict:
     return response
 
 
-# @shared_task
 def save_blog_posts(data: str | dict):
     """
     Save the generated blog posts to the `BlogPost` table, along with any new tags
@@ -171,32 +162,34 @@ def save_blog_posts(data: str | dict):
         return
     elif isinstance(data, str):
         data = json.loads(data)
-    print('DATA TYPE: ', type(data))
-    print('DATA: ', data)
-    existing_tags = set(Tags.objects.all().values_list("name", flat=True))
-    new_tags = {}
-    posts_tags = {}
-    new_posts = {}
-    for post in data['feeds']:
-        uid = uuid.uuid4()
-        post_tags = list(
-            map(lambda tag: tag.lower().replace(" ", "-"), post.pop("tags", [])))
-        tags = [Tags(name=tag)
-                for tag in post_tags if tag not in existing_tags]
-        new_tags[uid] = tags
-        new_posts[uid] = BlogPost(**post)
-        posts_tags[uid] = post_tags
-    with transaction.atomic():
-        created_posts = BlogPost.objects.bulk_create(new_posts.values())
-        Tags.objects.bulk_create(chain.from_iterable(new_tags.values()))
+    try:
+        existing_tags = set(Tags.objects.all().values_list("name", flat=True))
+        new_tags = {}
+        posts_tags = {}
+        new_posts = {}
+        for post in data['feeds']:
+            uid = uuid.uuid4()
+            post_tags = list(
+                map(lambda tag: tag.lower().replace(" ", "-"), post.pop("tags", [])))
+            tags = [Tags(name=tag)
+                    for tag in post_tags if tag not in existing_tags]
+            new_tags[uid] = tags
+            new_posts[uid] = BlogPost(**post)
+            posts_tags[uid] = post_tags
+        with transaction.atomic():
+            created_posts = BlogPost.objects.bulk_create(new_posts.values())
+            Tags.objects.bulk_create(chain.from_iterable(new_tags.values()))
 
-        all_tag_names = set(chain.from_iterable(posts_tags.values()))
-        all_tags = Tags.objects.filter(name__in=all_tag_names)
-        tag_map = {tag.name: tag for tag in all_tags}
+            all_tag_names = set(chain.from_iterable(posts_tags.values()))
+            all_tags = Tags.objects.filter(name__in=all_tag_names)
+            tag_map = {tag.name: tag for tag in all_tags}
 
-        uid_to_post = dict(zip(new_posts.keys(), created_posts))
+            uid_to_post = dict(zip(new_posts.keys(), created_posts))
 
-        for uid, post in uid_to_post.items():
-            tags = [tag_map[name]
-                    for name in posts_tags[uid] if name in tag_map]
-            post.tags.add(*tags)
+            for uid, post in uid_to_post.items():
+                tags = [tag_map[name]
+                        for name in posts_tags[uid] if name in tag_map]
+                post.tags.add(*tags)
+
+    except Exception as e:
+        print(f"Error saving blog posts: {e}")

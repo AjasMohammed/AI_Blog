@@ -31,7 +31,8 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG')
 
 ALLOWED_HOSTS = []
-
+CORS_ALLOW_ALL_ORIGINS = True
+# CORS_ALLOWED_ORIGINS = []
 
 # Application definition
 
@@ -42,18 +43,22 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'home.apps.HomeConfig',
-    'blog.apps.BlogConfig',
-    'admin_panal.apps.AdminPanalConfig',
+
+    'home',
+    'blog',
+    'admin_panal',
+    "agent",
 
     'django_celery_results',
     'django_celery_beat',
     "django_extensions",
+    "rest_framework",
+    "corsheaders",
 
-    "agent.apps.AgentConfig",
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -108,7 +113,6 @@ DATABASES = {
 }
 
 
-
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
@@ -156,7 +160,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 CELERY_BROKER_URL = "redis://127.0.0.1:6378"
-CELERY_ACCEPT_CONTENT= ["application/json"]
+CELERY_ACCEPT_CONTENT = ["application/json"]
 CELERY_RESULT_SERIALIZER = "json"
 CELERY_TASK_SERIALIZER = "json"
 CELERY_TIMEZONE = "Asia/Kolkata"
@@ -172,4 +176,3 @@ AI_MODEL = "gemini-2.0-flash"
 
 LLM = ChatGoogleGenerativeAI(
     model=AI_MODEL, api_key=GOOGLE_API_KEY)
-

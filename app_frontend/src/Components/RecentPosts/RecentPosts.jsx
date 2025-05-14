@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState, use, useEffect } from "react";
 import BlogCard from "../BlogCard/BlogCard";
-
+import axios from "../../api/axios";
 
 const dummData = [
     {
@@ -25,12 +25,19 @@ const dummData = [
     },
     {
         title: "The Future of AI in Healthcare: How to Prepare for the Next Wave",
-        summary: "A look at the future of AI in healthcare and how to prepare for the next wave of innovation.",
+        summary:
+            "A look at the future of AI in healthcare and how to prepare for the next wave of innovation.",
     },
 ];
 function RecentPosts() {
+    const [cardData, setCardData] = useState([]);
+    useEffect(() => {
+        axios.get("/blog/all/").then((res) => {
+            setCardData(res.data);
+        });
+    }, []);
     return (
-        <div className="p-5 pt-10 relative bg-secondary">
+        <div className="p-5 pt-5 relative bg-secondary h-screen">
             <a className="text-5xl font-extrabold text-primary mb-5 hover:underline transition">
                 Recent Posts:
             </a>
@@ -41,8 +48,8 @@ function RecentPosts() {
               </p>
           </div> */}
             <div className="grid grid-cols-3 gap-5 mt-10 px-10">
-                {dummData.map((content, index) => (
-                    <BlogCard key={index} content={content} />
+                {cardData && cardData.map((content) => (
+                    <BlogCard key={content.uid} content={content} />
                 ))}
             </div>
         </div>

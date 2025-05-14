@@ -18,7 +18,7 @@ function NavBar() {
                   placeholder="Search"
                   className="bg-white py-3 px-5 rounded-2xl outline-0"
               />
-              <button className="bg-white border border-secondary text-secondary font-bold px-5 py-2 rounded-2xl hover:bg-secondary hover:text-white">
+              <button className="bg-primary cursor-pointer border border-secondary text-secondary font-bold px-5 py-2 rounded-2xl hover:bg-secondary hover:text-white">
                   Search
               </button>
           </div>

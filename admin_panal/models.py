@@ -18,10 +18,11 @@ class Tags(BaseModel):
 
 
 class BlogPost(BaseModel):
-    title = models.CharField(max_length=100)
+    post_id = models.CharField(max_length=100, unique=True, db_index=True)
+    title = models.CharField(max_length=1000)
     summary = models.TextField(max_length=2000)
     content = models.TextField(max_length=10000)
-    tags = models.ManyToManyField(Tags, blank=True, null=True)
+    tags = models.ManyToManyField(Tags, blank=True, null=True, related_name="posts")
     external_links = ArrayField(models.CharField(max_length=1000), blank=True, null=True)
     def __str__(self):
         return self.title

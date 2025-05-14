@@ -67,7 +67,7 @@ function HeroSection() {
                     </h4>
                     <h1
                         id="hero-title"
-                        className="text-6xl font-extrabold text-secondary"
+                        className="text-shadow text-6xl font-extrabold text-secondary"
                     >
                         Welcome to NeuroFeed
                     </h1>
@@ -81,7 +81,7 @@ function HeroSection() {
                 </p>
                 <div
                     id="ai-message"
-                    className="m-5 text-xl flex mt-20 bg-white rounded-2xl px-3 py-8"
+                    className="m-5 text-xl flex mt-20 bg-white rounded-2xl px-3 py-8 shadow-[8px_8px_0_theme('colors.ternary')] gap-3"
                 >
                     <span className="font-bold text-2xl text-secondary px-2">
                         &gt;&gt;&gt;

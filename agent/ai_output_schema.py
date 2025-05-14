@@ -59,7 +59,8 @@ blog_schema_v2 = {
                         "tags": {
                             "type": "array",
                             "items": {"type": "string", "description": "tags related to the topic"}
-                        }
+                        },
+                        "post_id": {"type": "string", "description": "id of the blog post"}
                     }
                 },
                 "required": ["title", "summary", "content", "external_links"]
