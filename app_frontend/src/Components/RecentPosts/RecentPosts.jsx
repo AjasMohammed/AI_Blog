@@ -32,7 +32,7 @@ const dummData = [
 function RecentPosts() {
     const [cardData, setCardData] = useState([]);
     useEffect(() => {
-        axios.get("/blog/all/").then((res) => {
+        axios.get("/blog/cards/").then((res) => {
             setCardData(res.data);
         });
     }, []);

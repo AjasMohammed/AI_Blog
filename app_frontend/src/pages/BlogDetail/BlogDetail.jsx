@@ -17,8 +17,8 @@ function BlogDetail() {
         });
     }, [uid]);
     return (
-        <section className="bg-primary min-h-screen grid grid-cols-4">
-            <aside className="bg-secondary rounded-2xl m-4 p-6 h-fit text-lg text-primary font-semibold flex flex-col items-start justify-center gap-6">
+        <section className="bg-primary min-h-screen grid grid-cols-4 relative">
+            <aside className="bg-secondary rounded-2xl m-4 p-6 h-fit text-lg text-primary font-semibold flex flex-col items-start justify-center gap-6 sticky top-25">
                 <h3 className="text-2xl underline">Related Posts</h3>
                 {relatedPosts &&
                     relatedPosts.map((content) => (
@@ -31,7 +31,7 @@ function BlogDetail() {
                         </Link>
                     ))}
             </aside>
-            <article className="col-span-2 pl-10 pt-10 text-lg h-screen overflow-x-auto scroll-hidden">
+            <article className="col-span-2 pl-10 pt-10 text-lg">
                 {blogData && (
                     <>
                         <h2 className="text-4xl font-extrabold text-ternary mb-6">
@@ -81,7 +81,7 @@ function BlogDetail() {
                     </>
                 )}
             </article>
-            <aside className="bg-ternary rounded-2xl py-6 px-4 h-fit mx-8 mt-6">
+            <aside className="bg-ternary rounded-2xl py-6 px-4 h-fit mx-8 mt-6 sticky top-25">
                 <div>
                     <h3 className="text-2xl font-extrabold text-primary mb-6 underline">
                         Related Tags
@@ -90,7 +90,7 @@ function BlogDetail() {
                         {blogData &&
                             blogData.tags.map((tag) => (
                                 <li key={tag.uid} className="text-primary">
-                                    <Link>{tag.name}</Link>
+                                    <Link key={tag.uid} to={`/blog/all/?tag=${tag.name}`} state={{ tagId: tag.uid }}>{tag.name}</Link>
                                 </li>
                             ))}
                     </ul>

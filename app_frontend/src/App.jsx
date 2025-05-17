@@ -2,6 +2,7 @@ import "./App.css";
 import NavBar from "./Components/NavBar/NavBar";
 import Home from "./pages/Home/Home";
 import BlogDetail from "./pages/BlogDetail/BlogDetail";
+import BlogList from "./pages/BlogList/BlogList";
 import Footer from "./Components/BlogCard/Footer/Footer";
 import { Routes, Route } from "react-router-dom";
 
@@ -15,6 +16,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/blog/:uid" element={<BlogDetail />} />
+                    <Route path="/blog/all/" element={<BlogList />} />
                 </Routes>
             </main>
             <footer className="h-100 bg-ternary text-primary">
