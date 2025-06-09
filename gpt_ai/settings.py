@@ -10,9 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+import os
 from pathlib import Path
 import os.path
 from decouple import config
+from langchain_google_genai import ChatGoogleGenerativeAI
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -29,7 +31,8 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG')
 
 ALLOWED_HOSTS = []
-
+CORS_ALLOW_ALL_ORIGINS = True
+# CORS_ALLOWED_ORIGINS = []
 
 # Application definition
 
@@ -40,16 +43,22 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'home.apps.HomeConfig',
-    'blog.apps.BlogConfig',
-    'admin_panal.apps.AdminPanalConfig',
+
+    'home',
+    'blog',
+    'admin_panal',
+    "agent",
+
     'django_celery_results',
     'django_celery_beat',
+    "django_extensions",
+    "rest_framework",
+    "corsheaders",
 
-    "agent"
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -84,10 +93,22 @@ WSGI_APPLICATION = 'gpt_ai.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config('POSTGRES_DB'),
+        'USER': config('POSTGRES_USER'),
+        'PASSWORD': config('POSTGRES_PASSWORD'),
+        'HOST': config('POSTGRES_HOST', 'localhost'),
+        'PORT': config('POSTGRES_PORT', '5432'),
     }
 }
 
@@ -138,8 +159,8 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-CELERY_BROKER_URL = "redis://127.0.0.1:6379"
-CELERY_ACCEPT_CONTENT= ["application/json"]
+CELERY_BROKER_URL = "redis://127.0.0.1:6378"
+CELERY_ACCEPT_CONTENT = ["application/json"]
 CELERY_RESULT_SERIALIZER = "json"
 CELERY_TASK_SERIALIZER = "json"
 CELERY_TIMEZONE = "Asia/Kolkata"
@@ -150,3 +171,8 @@ CELERY_RESULT_BACKEND = 'django-db'
 
 CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
 GOOGLE_API_KEY = config("GOOGLE_API_KEY")
+
+AI_MODEL = "gemini-2.0-flash"
+
+LLM = ChatGoogleGenerativeAI(
+    model=AI_MODEL, api_key=GOOGLE_API_KEY)

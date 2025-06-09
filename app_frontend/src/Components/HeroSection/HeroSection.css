@@ -1,0 +1,12 @@
+/* #part-1 .point-card{
+    transform: translateY(-5rem);
+}
+#part-2 .point-card{
+    transform: translateY(5rem);
+} */
+#part-1 .point-card:nth-child(even) {
+transform: translateX(5rem);
+}
+#part-2 .point-card:nth-child(odd) {
+transform: translateX(-5rem);
+}
